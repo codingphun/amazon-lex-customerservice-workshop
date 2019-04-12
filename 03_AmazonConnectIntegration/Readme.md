@@ -16,7 +16,7 @@ Go to the [Amazon Connect Console](https://console.aws.amazon.com/connect/home?r
 
 1. From the AWS Management Console, choose **Services** then select **Amazon Connect** under Contact Center and then **Get started**
 
-1. In **Step 1: Identity management**, select **Store users within Amazon Connect** and provide a domain name (e.g. `{FirstName}` to complete the **Access URL** and click **Next step**
+1. In **Step 1: Identity management**, select **Store users within Amazon Connect** and provide a domain name (e.g. `YourIntials-lex-workshop` to complete the **Access URL** and click **Next step**
 	
 	> The domain name used in your contact center URL needs to be globally unique and cannot be changed.
 	Alternatively, Amazon Connect can use an existing [AWS Directory Services](https://aws.amazon.com/directoryservice) directory.   
