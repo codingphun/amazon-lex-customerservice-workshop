@@ -14,11 +14,11 @@ We can create a separate intent to apply the chosen plan into the user's account
 You can achieve this by using **Session Attributes**. Read [here](http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html) if you want more details of how session attributes work. You can set session attributes in the Lambda function that fulfills the bot logic. 
 
 
-In the `ListInternationalPlans` intent we built in the last module, the Lambda function is setting the `country` session attribute as part of the response, so subsequent conversation will have that context: 
+In the `YourIntials_ListInternationalPlans` intent we built in the last module, the Lambda function is setting the `country` session attribute as part of the response, so subsequent conversation will have that context: 
 
 <img src="images/list-intent-session.png" alt="session attributes in the list intent" width="50%">
 
-You can also take a look at the Lambda [source code](../lambda-functions/bot-handler/index.js) to see how it's setting the session attributes (look for the `listPlanIntent` function).
+You can also take a look at the Lambda [source code](../lambda-functions/bot-handler/index.js) to see how it's setting the session attributes (look for the `YourIntials_listPlanIntent` function).
 
 <a name="user-auth"></a>
 ## Identifying and authenticating the user
@@ -41,7 +41,7 @@ Let's start by defining the conversational interface of adding an international 
 
 #### Conversational interface
 
-1. Start by creating a new intent in the `InternationalPlan` bot you already created. Name it the `ApplyTravelPlan` intent
+1. Start by creating a new intent in the `YourIntials_InternationalPlan` bot you already created. Name it the `YourIntials_ApplyTravelPlan` intent
 
 1. Create a slot `Country` for the country the travel plan applies to. 
 	<details>
@@ -54,7 +54,7 @@ Let's start by defining the conversational interface of adding an international 
 	</details>
 
 
-1. Create a new custom slot for plan name with 2 supported values: `basic` and `premium` and add it to the intent as slot `planName`.
+1. Create a new custom slot for plan name with 2 supported values: `basic` and `premium` and add it to the intent as slot `YourIntials_planName`.
 
 	<details>
 	<summary><strong> Expand for detailed instruction </strong></summary><p>
@@ -150,7 +150,7 @@ Let's start by defining the conversational interface of adding an international 
 
 In the last module, we used AWS Lambda to fulfill the user's intent. Another powerful integration is using Lambda functions to **validate user inputs**. When you enable this feature, Lex invokes the specified Lambda function on each user input (utterance) after Amazon Lex recognizes the intent. 
 
-Here's how we can use this for our `ApplyTravelPlan` intent:
+Here's how we can use this for our `YourIntials_ApplyTravelPlan` intent:
 
 * Once Lex recognizes the intent to subscribe to a plan, the Lambda function can check if the user has been authenticated (through [session attributes](#session-context)). If not, **force the user to verify their identity before proceeding**.
 
@@ -160,12 +160,12 @@ Here's how we can use this for our `ApplyTravelPlan` intent:
 
 * Validate there's a corresponding plan for user's specified country.    
 
-Now, configure the `lex-workshop-LexBotHandler` function for input validation for this intent.
+Now, configure the `YourIntials-lex-workshop-LexBotHandler` function for input validation for this intent.
 
 <details>
 <summary><strong> Expand for detailed instruction </strong></summary><p>
 	
-1. Under **Lambda initialization and validation** setting for the `ApplyTravelPlan` intent, pick the `lex-workshop-LexBotHandler` Lambda function
+1. Under **Lambda initialization and validation** setting for the `YourIntials_ApplyTravelPlan` intent, pick the `YourIntials-lex-workshop-LexBotHandler` Lambda function
 	
 	<img src="images/validation-lambda.png" alt="configure validation Lambda screenshot" width="70%">
 	
@@ -186,7 +186,7 @@ To handle the identity verification flow, create a new intent with a slot for us
 <details>
 <summary><strong> Expand for detailed instruction </strong></summary><p>
 
-1. Create a new intent `VerifyIdentity`
+1. Create a new intent `YourIntials_VerifyIdentity`
 
 1. Create a `pin` slot with a built-in slot type `AMAZON.FOUR_DIGIT_NUMBER` with a prompt `What's your pin code?`
 
@@ -202,7 +202,7 @@ To handle the identity verification flow, create a new intent with a slot for us
 	verify my identity
 	```
 
-1. Configure `lex-workshop-LexBotHandler` Lambda function for intent fulfillment: 
+1. Configure `YourIntials-lex-workshop-LexBotHandler` Lambda function for intent fulfillment: 
 
 	<img src="images/configure-identify-intent.png" alt="configure the pin slot" width="100%">
 
@@ -221,15 +221,15 @@ To handle the identity verification flow, create a new intent with a slot for us
 
 ### 2C: Configure fulfillment for adding international plans 
 
-Now we are ready to fulfill the user's request to add plans to their account! Configure the fulfillment for the `ApplyTravelPlan` intent to use the same Lambda function `lex-workshop-LexBotHandler`
+Now we are ready to fulfill the user's request to add plans to their account! Configure the fulfillment for the `YourIntials_ApplyTravelPlan` intent to use the same Lambda function `YourIntials-lex-workshop-LexBotHandler`
 
 
 <details>
 <summary><strong> Expand for detailed instruction </strong></summary><p>
 
-1. Go to the `ApplyTravelPlan` intent
+1. Go to the `YourIntials_ApplyTravelPlan` intent
 
-1. Under Fulfillment, select the `lex-workshop-LexBotHandler` Lambda function (you may need to grant permissions as before)
+1. Under Fulfillment, select the `YourIntials-lex-workshop-LexBotHandler` Lambda function (you may need to grant permissions as before)
 
 1. We can add a **response** for when the Lambda function successfully adds the plan to the user's account: 
 	* Response message: `{planName} plan in {Country} has been added to your account.  Can I help you with anything else today?`
@@ -250,9 +250,9 @@ Now we are ready to fulfill the user's request to add plans to their account! Co
 
 Now we have configured 3 intents:
 
-* `ListInternationalPlans` - for users to inquire travel options they can add to phone plan
-* `ApplyTravelPlan` - for applying a user's selected travel plan to their account
-* `VerifyIdentity` - for verifying user's identity
+* `YourIntials_ListInternationalPlans` - for users to inquire travel options they can add to phone plan
+* `YourIntials_ApplyTravelPlan` - for applying a user's selected travel plan to their account
+* `YourIntials_VerifyIdentity` - for verifying user's identity
 
 We can now test how these intents can work together to provide a streamlined customer experience:
 
@@ -264,7 +264,7 @@ Note that by leveraging [session attributes](#session-context), the Lex bot is a
 
 If we take a look at the **Inspect Response** tab at this point, notice the below: 
 
-* After verifying the user, the bot remembers the user was in progress to add a plan, and set the `intentName` to `ApplyTravelPlan` (see yellow highlight)
+* After verifying the user, the bot remembers the user was in progress to add a plan, and set the `intentName` to `YourIntials_ApplyTravelPlan` (see yellow highlight)
 * After verifying the user, the bot sets the `sessionAttributes` to mark the logged in user (see red highlight)
 * After verifying the user, the bot identifies inputs that the user has provided in previous intents (e.g. `Country` and `planName`) and prompts the user to collect information that hasn't been provided (see green highlight)
 
@@ -284,7 +284,7 @@ You can also verify the user's plan selections are being persisted in DynamoDB b
 
 1. Go to the [DynamoDB console](https://console.aws.amazon.com/dynamodb/home)
 
-1. Select the table name starting with `lex-workshop-UserTravelPlansDDBTable`
+1. Select the table name starting with `YourIntials-lex-workshop-UserTravelPlansDDBTable`
 
 	<img src="images/ddb-tables.png" alt="configure the pin slot" width="100%">
 
