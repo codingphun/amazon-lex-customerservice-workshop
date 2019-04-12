@@ -54,7 +54,7 @@ With a Connect instance and a phone number, you can now create the Contact Flow 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In the Amazon Connect Console, select your instance, then choose Contact Flows to allow Amazon Connect to interact with the `InternationalPlan` bot
+1. In the Amazon Connect Console, select your instance, then choose Contact Flows to allow Amazon Connect to interact with the `YourIntials_InternationalPlan` bot
 
 	<img src="images/allow_connect_integration.png" alt="Allow Connect to interact with the bot"/>
 
@@ -66,7 +66,7 @@ With a Connect instance and a phone number, you can now create the Contact Flow 
 
 1. In the top right corner select **Create contact flow** to open the contact flow editor
 
-1. Name your contact flow `CustomerServiceChatbot`
+1. Name your contact flow `YourIntials_CustomerServiceChatbot`
 
 1. Expand the **Interact** group of blocks and drag and drop the **Get customer input** block onto the grid
 
@@ -82,7 +82,7 @@ With a Connect instance and a phone number, you can now create the Contact Flow 
 	
 	1. Select **Amazon Lex** input type
 	
-	1. Enter `InternationalPlan` bot name and `dev` alias
+	1. Enter `YourIntials_InternationalPlan` bot name and `dev` alias
 
 	1. Click **Save**
 
@@ -105,7 +105,7 @@ Now you need to associate your new contact flow with your phone number
 
 1. Click on the number to edit the contact flow
 
-1. Search and select the `CustomerServiceChatbot` contact flow in the **Contact flow/IVR** field
+1. Search and select the `YourIntials_CustomerServiceChatbot` contact flow in the **Contact flow/IVR** field
 
 1. Select **Save** to confirm the contact flow association
 </p></details>
@@ -127,7 +127,7 @@ In this last step we are enhancing the customer input configuration of the conta
 
 	![ContactFlowNavigation](images/contact_flows_navigation.png)
 	
-1. Click the `CustomerServiceChatbot` flow to open the flow
+1. Click the `YourIntials_CustomerServiceChatbot` flow to open the flow
 
 1. Click the **Get customer input** block to access its configuration
 
