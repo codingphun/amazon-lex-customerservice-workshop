@@ -33,9 +33,9 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 1. Click the **Launch Stack** link above.
 
-1. Click **Next** on the Select Template page.
+1. Click **Next** on the Select Template page.  
 
-1. Click **Next** on the Specify Details page.
+1. On the Specify Details page, add your initials to the name of the stack `YourInitials_lex-workshop` and click **Next**. 
 
 1. On the Options page, leave all the defaults and click **Next**.
 
@@ -58,7 +58,7 @@ US East (N. Virginia) |   <span style="font-family:'Courier';">us-east-1</span> 
 
 ### 1A: Create a Lex bot
 
-Use the Lex Console to create a bot named `InternationalPlan`. 
+Use the Lex Console to create a bot named `YourInitials_InternationalPlan`. 
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -73,7 +73,7 @@ Use the Lex Console to create a bot named `InternationalPlan`.
 
 1. Fill in the form:
 
-	For **Bot name**, use `InternationalPlan`
+	For **Bot name**, use `YourInitials_InternationalPlan`
 	
 	For **Output voice**, pick `Joanna`
 	
@@ -88,16 +88,16 @@ Use the Lex Console to create a bot named `InternationalPlan`.
 
 ### 1B: Create the first intent
 
-Create a new intent `ListInternationalPlans` in the Lex bot
+Create a new intent `YourInitials_ListInternationalPlans` in the Lex bot
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In the `InternationalPlan` Lex bot you just created, click **+Create Intent**
+1. In the `YourInitials_InternationalPlan` Lex bot you just created, click **+Create Intent**
 
 1. Pick **Create new intent**
 
-1. Give the intent a name, `ListInternationalPlans`, then click **Add**
+1. Give the intent a name, `YourInitials_ListInternationalPlans`, then click **Add**
 
 </details>
 
@@ -114,7 +114,7 @@ Configure a slot `Country` with built-in type `AMAZON.Country` in the intent.
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In the **Slots** section of the `ListInternationalPlans` intent, fill in `Country` for the slot **Name**
+1. In the **Slots** section of the `YourInitials_ListInternationalPlans` intent, fill in `Country` for the slot **Name**
 
 1. Select `AMAZON.Country` for **Slot type**
 
@@ -182,7 +182,7 @@ The Lambda function that can respond to the international plan customer request 
 
 1. Go to the [DynamoDB console](https://console.aws.amazon.com/dynamodb/home)
 
-1. Select the table name starting with `lex-workshop-TravelPlanCatalog`
+1. Select the table name starting with `YourInitials_lex-workshop-TravelPlanCatalog`
 
 	<img src="images/plan-catalog-table.png" alt="ddb plan catalogue table" width="100%">
 
@@ -192,16 +192,33 @@ The Lambda function that can respond to the international plan customer request 
 
 </details>
 
-Now we are ready to configure Lex to send the detected intent and slot values from the user utterance to the `lex-workshop-LexBotHandler` Lambda function.
+We must make some changes to the Lambda function.
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
-1. In the **Fulfillment** section of the intent, choose **AWS Lambda function** and use the selector to pick the `lex-workshop-LexBotHandler` function
+1. Go to the Lambda [console](https://console.aws.amazon.com/lambda/home)
+
+1. Find the `YourInitials_lex-workshop-LexBotHandler` function and click on it
+
+1. Go to the Node.js code section, find and add your initials to `applyPlanIntentName`, `verifyIdentityIntentName`, and `listPlanIntentName` variables.
+
+	<img src="images/change-intent-names.png" alt="change intents name" width="100%">
+
+1. Save the function by clicking **Save**
+
+</details>
+
+Now we are ready to configure Lex to send the detected intent and slot values from the user utterance to the `YourInitials_lex-workshop-LexBotHandler` Lambda function.
+
+<details>
+<summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
+
+1. In the **Fulfillment** section of the intent, choose **AWS Lambda function** and use the selector to pick the `YourInitials_lex-workshop-LexBotHandler` function
 	
 	<img src="images/pick-lambda.png" alt="" width="90%">
 
-	> There are a handful of other Lambda functions the CloudFormation template created and that they all begin with `lex-workshop`, so be sure to select the right one.
+	> There are a handful of other Lambda functions the CloudFormation template created and that they all begin with `YourInitials_lex-workshop`, so be sure to select the right one.
 
 1. Click **OK** to give Lex permission to invoke the Lambda function.
 	![alt text](images/confirm-lambda-permission.png)
@@ -224,14 +241,14 @@ Now we are ready to configure Lex to send the detected intent and slot values fr
 ### 1F: Check execution logs for Lambda
 
 
-It's also valuable to understand what data is being passed to your Lambda function. Take a look at the `lex-workshop-LexBotHandler` function's **CloudWatch Logs** 
+It's also valuable to understand what data is being passed to your Lambda function. Take a look at the `YourInitials_lex-workshop-LexBotHandler` function's **CloudWatch Logs** 
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
 
 1. Go to the Lambda [console](https://console.aws.amazon.com/lambda/home)
 
-1. Find the `lex-workshop-LexBotHandler` function and click on it
+1. Find the `YourInitials_lex-workshop-LexBotHandler` function and click on it
 
 1. Go to the **Monitoring** tab
 
