@@ -54,7 +54,7 @@ Let's start by defining the conversational interface of adding an international 
 	</details>
 
 
-1. Create a new custom slot for plan name with 2 supported values: `basic` and `premium` and add it to the intent as slot `YourIntials_planName`.
+1. Create a new custom slot type for plan name with 2 supported values: `basic` and `premium` and add it to the intent as slot `YourIntials_planName`.
 
 	<details>
 	<summary><strong> Expand for detailed instruction </strong></summary><p>
