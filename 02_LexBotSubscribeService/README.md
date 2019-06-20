@@ -61,7 +61,7 @@ Let's start by defining the conversational interface of adding an international 
 	
 	1. On the left side bar, locate the **Slot Types** tab and click (+)
 
-	1. Use `TravelPlan` for slot name
+	1. Use `YourIntials_TravelPlan` for slot name
 
 	1. 	For description, use something like `name of international phone plans`. 
 	1. For **Slot Resolution**, because in this example our international phone plans only have two possible names, we will pick **Restrict to Slot values and Synonyms** (The "Expand Values" option is when the values are more open ended, e.g. book titles, company names, etc. ) 
