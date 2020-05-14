@@ -8,8 +8,8 @@ To achieve this you will create a contact center, configure a simple call flow, 
 
 Each of the following sections provide an implementation overview and detailed, step-by-step instructions. The overview should provide enough context for you to complete the implementation if you're already familiar with the AWS Management Console or if you want to explore the services yourself without following a walkthrough.
 
-### Create a new Amazon Conect instance
-Go to the [Amazon Connect Console](https://console.aws.amazon.com/connect/home?region=us-east-1) to create a new virtual contact center instance in the us-east-1 (Virgina) region.
+### Create a new Amazon Connect instance
+Go to the [Amazon Connect Console](https://console.aws.amazon.com/connect/home?region=us-east-1) to create a new virtual contact center instance in the us-east-1 (N. Virginia) region.
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -62,7 +62,7 @@ With a Connect instance and a phone number, you can now create the Contact Flow 
 
 	![ContactFlowNavigation](images/contact_flows_navigation.png)
 	
-	> If you closed your browser window you can always re-open the Amazon Connect Contact Center Manager from the [Amazon Connect console](https://console.aws.amazon.com/connect/home?region=us-east-1). Just selct your Amazon connect instance and click on the **Login as administrator** button in the **Overview** section of the console. 
+	> If you closed your browser window you can always re-open the Amazon Connect Contact Center Manager from the [Amazon Connect console](https://console.aws.amazon.com/connect/home?region=us-east-1). Just select your Amazon connect instance and click on the **Login as administrator** button in the **Overview** section of the console. 
 
 1. In the top right corner select **Create contact flow** to open the contact flow editor
 

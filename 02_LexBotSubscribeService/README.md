@@ -29,7 +29,7 @@ The way you identify users can vary depend on where and how your Lex bot is depl
 
 If your Amazon Lex bot is deployed as a **Facebook Messenger** or **Slack** bot, users are already logged in into Facebook/Slack respectively, and these channels will pass the user ID on these platforms into your bot. This means you need to build a backend that can correlate the Facebook/Slack user to your company's user management system. 
 
-If your Lex bot is bulit as part of your **mobile/web app**, then you can rely on the normal authentication methods of your app for users to log in.
+If your Lex bot is built as part of your **mobile/web app**, then you can rely on the normal authentication methods of your app for users to log in.
 
 This workshop shows an example if your Lex bot is deployed with either **Amazon Connect** or **Twilio SMS**. In these two scenario, because the user is interacting with your bot through a phone, you can use the phone number as one of the factors in a Multi-factor Authentication flow. In this example, we will ask for a four-digit PIN for the account associated with the phone number. 
 
