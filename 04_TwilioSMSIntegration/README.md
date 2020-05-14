@@ -1,6 +1,6 @@
 # Module 4: Integrate Amazon Lex with Twilio Programmable SMS 
 
-Amazon Lex offers built-in integration with Facebook, Slack, and Twilio SMS. In this module you will integrate your Amazon Lex bot with the Twilio Programmable SMS platform. With this integraton in place, you'll be able to interact with your bot over SMS. You will need to create a Twilio trial account and set up a Twilio SMS-enabled phone number. 
+Amazon Lex offers built-in integration with Facebook, Slack, and Twilio SMS. In this module you will integrate your Amazon Lex bot with the Twilio Programmable SMS platform. With this integration in place, you'll be able to interact with your bot over SMS. You will need to create a Twilio trial account and set up a Twilio SMS-enabled phone number. 
 
 ## Implementation Instructions
 
